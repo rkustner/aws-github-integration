@@ -29,5 +29,6 @@ jobs:
           cd ${GITHUB_WORKSPACE}/cdk-sample
           npm install
           cdk synth
+          cdk deploy
 
 
