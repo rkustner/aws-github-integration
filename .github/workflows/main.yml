@@ -15,5 +15,9 @@ jobs:
       - name: get caller identity
         run: |
           aws sts get-caller-identity
+      - name: install CDK
+        run: |
+          sudo npm install -g aws-cdk
+          cdk --version
 
 

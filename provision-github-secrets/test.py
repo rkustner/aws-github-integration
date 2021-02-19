@@ -54,7 +54,7 @@ def upload_secret(owner_repo,key_name,encrypted_value,pub_key_id,github_token):
 
 USER_ARN = "arn:aws:iam::690167127138:user/ProvisionGithubSecretsStack-GithubUser36C2AAC7-1RF46UCFLWB2N"
 github_token = 'undefined'
-repo = 'rkustner/hello-github-actions'
+repo = 'rkustner/aws-github-integration'
 access_key_name = "access_key_id"
 secret_key_name = "secret_key_id"
 
