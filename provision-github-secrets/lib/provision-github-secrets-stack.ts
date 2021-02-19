@@ -17,6 +17,10 @@ export class ProvisionGithubSecretsStack extends cdk.Stack {
       resources: ['*']
     })
 
+    const lambdaLayers = new lambda.LayerVersion(this, 'LambdaLayers', {
+      code: lambda.Code.fromAsset('lambda_layers')
+    });
+
     const generateAWSKeyFunction = new lambda.Function(this, 'generateAWSKeyFunction', {
       functionName: `sandbox-generateAWSKeyFunction`,
       description: `generateAWSKeyFunction handler ${new Date().toISOString()}`,
@@ -24,7 +28,8 @@ export class ProvisionGithubSecretsStack extends cdk.Stack {
       runtime: lambda.Runtime.PYTHON_3_8,
       handler: 'generateAWSKey.handler',
       timeout: Duration.seconds(60*3),
-      environment: {'userArn': userArn}
+      layers: [lambdaLayers],
+      environment: {'userArn': userArn, 'repo': 'rkustner/aws-github-integration'}
     });
     generateAWSKeyFunction.addToRolePolicy(accessKeyPolicy)
  
