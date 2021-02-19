@@ -1,0 +1,19 @@
+name: A workflow for my Hello World file
+on: push
+
+jobs:
+  build:
+    name: Hello world action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+           aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+           aws-secret-access-key: ${{ secrets.SECRET_KEY_ID }}
+           aws-region: eu-west-1
+      - name: get caller identity
+        run: |
+          aws sts get-caller-identity
+
+
