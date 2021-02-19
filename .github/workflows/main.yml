@@ -28,6 +28,6 @@ jobs:
         run: |
           cd ${GITHUB_WORKSPACE}/cdk-sample
           npm install
-          #cdk synth
+          cdk synth
 
 
