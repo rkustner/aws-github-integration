@@ -20,6 +20,7 @@ jobs:
       - name: install CDK
         run: |
           sudo npm install -g aws-cdk
+          sudo npm install -g typescript
           cdk --version
       - name: synthesize cdk-sample app
         run: |
