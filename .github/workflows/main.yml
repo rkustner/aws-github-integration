@@ -24,11 +24,11 @@ jobs:
           sudo npm install -g typescript
           sudo npm install -g aws-cdk
           cdk --version
-      - name: synthesize cdk-sample app
+      - name: synthesize & deploy cdk-sample app
         run: |
           cd ${GITHUB_WORKSPACE}/cdk-sample
           npm install
           cdk synth
-          cdk deploy
+          cdk deploy --require-approval never
 
 
