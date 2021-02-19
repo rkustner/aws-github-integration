@@ -6,6 +6,8 @@ jobs:
     name: Hello world action
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -19,11 +21,9 @@ jobs:
         run: |
           sudo npm install -g aws-cdk
           cdk --version
-      - name: synthesize cdk app
+      - name: synthesize cdk-sample app
         run: |
-          pwd
-          cd ${GITHUB_WORKSPACE}
-          ls -a
+          cd ${GITHUB_WORKSPACE}/cdk-sample
           cdk synth
 
 
