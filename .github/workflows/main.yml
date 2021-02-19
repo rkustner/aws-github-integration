@@ -25,6 +25,7 @@ jobs:
       - name: synthesize cdk-sample app
         run: |
           cd ${GITHUB_WORKSPACE}/cdk-sample
+          npm install
           cdk synth
 
 
