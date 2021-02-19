@@ -21,7 +21,9 @@ jobs:
           cdk --version
       - name: synthesize cdk app
         run: |
-          cd $GITHUB_WORKSPACE/cdk-sample
+          pwd
+          cd ${GITHUB_WORKSPACE}
+          ls -a
           cdk synth
 
 
